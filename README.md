@@ -1,6 +1,6 @@
 # Ames Housing Streamlit GUI
 
-This is a Streamlit GUI built around the existing `final_modelling2.ipynb` **without modifying the notebook**.
+This is a Streamlit GUI built around the existing `Ames_Housing_Prediction.ipynb` **without modifying the notebook**.
 
 ## Project structure
 
@@ -8,7 +8,7 @@ This is a Streamlit GUI built around the existing `final_modelling2.ipynb` **wit
 .
 ├── app.py
 ├── build_model.py
-├── final_modelling2.ipynb   # unchanged
+├── Ames_Housing_Prediction.ipynb   # unchanged
 ├── AmesHousing.csv          # place your original dataset here
 ├── requirements.txt
 ├── artifacts/
@@ -20,7 +20,7 @@ This is a Streamlit GUI built around the existing `final_modelling2.ipynb` **wit
 
 ## Setup
 
-Put the same `AmesHousing.csv` used by the notebook in this folder.
+Keep the same `AmesHousing.csv` used by the notebook in this folder.
 
 ```bash
 pip install -r requirements.txt

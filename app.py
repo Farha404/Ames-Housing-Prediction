@@ -48,7 +48,7 @@ def cached_schema():
 
 def ensure_project_ready():
     if not DATASET.exists():
-        st.error("AmesHousing.csv is missing. Place it in the project root beside final_modelling2.ipynb.")
+        st.error("AmesHousing.csv is missing. Place it in the project root.")
         st.stop()
 
 

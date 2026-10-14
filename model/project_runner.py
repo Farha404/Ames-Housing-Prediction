@@ -13,6 +13,7 @@ import joblib
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK = ROOT / "Ames_Housing_Prediction.ipynb"
+LEGACY_NOTEBOOK = ROOT / "final_modelling2.ipynb"
 DATASET = ROOT / "AmesHousing.csv"
 ARTIFACT = ROOT / "artifacts" / "final_svr_model.joblib"
 
@@ -21,14 +22,24 @@ MODEL_CELLS = [2, 4, 8, 10, 13, 123, 144, 146, 147, 148, 183]
 
 
 def _load_notebook() -> dict[str, Any]:
-    with NOTEBOOK.open("r", encoding="utf-8") as f:
+    notebook_path = next(
+        (path for path in (NOTEBOOK, LEGACY_NOTEBOOK) if path.is_file()),
+        None,
+    )
+    if notebook_path is None:
+        raise FileNotFoundError(
+            "Notebook not found. Expected "
+            f"{NOTEBOOK.name} (or legacy name {LEGACY_NOTEBOOK.name}) in {ROOT}."
+        )
+
+    with notebook_path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def _execute_notebook_model() -> dict[str, Any]:
     if not DATASET.exists():
         raise FileNotFoundError(
-            f"Missing AmesHousing.csv. Put the dataset next to final_modelling2.ipynb: {DATASET}"
+            f"Missing AmesHousing.csv. Put the dataset in the project root: {DATASET}"
         )
 
     nb = _load_notebook()
