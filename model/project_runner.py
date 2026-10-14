@@ -12,7 +12,7 @@ from typing import Any
 import joblib
 
 ROOT = Path(__file__).resolve().parents[1]
-NOTEBOOK = ROOT / "final_modelling2.ipynb"
+NOTEBOOK = ROOT / "Ames_Housing_Prediction.ipynb"
 DATASET = ROOT / "AmesHousing.csv"
 ARTIFACT = ROOT / "artifacts" / "final_svr_model.joblib"
 
